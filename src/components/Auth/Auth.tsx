@@ -1,12 +1,20 @@
 // LoginForm.js
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import client from '@/client'
+import { useRouter } from 'next/router'
 
 export const Auth = () => {
     const [username, setUsername] = useState('johndoe@mail.com')
     const [status, setStatus] = useState('logged out')
     const [password, setPassword] = useState('')
 
+    const router = useRouter();
+    useEffect(() => {
+        const accessToken = localStorage.getItem('accessToken')
+        accessToken ? setStatus('logged in') : setStatus('logged out')
+        accessToken && router.push('/dashboard')
+    }, [])
+    
     const handleUsernameChange = (e: { target: { value: React.SetStateAction<string> } }) => {
         setUsername(e.target.value)
     }
@@ -27,6 +35,7 @@ export const Auth = () => {
 
             // You can add your login logic here using the username and password state
             console.log('Login submitted with:', {username, password})
+            router.push('/dashboard')
         } catch (error) {
             setStatus('Error')
         }

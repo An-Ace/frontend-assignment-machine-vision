@@ -1,8 +1,7 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Table from "@/components/Table/Index";
+import { Auth } from "@/components/Auth/Auth";
 
 export default function Home() {
     return (
@@ -17,7 +16,7 @@ export default function Home() {
             }}
         >
             <Typography variant="h4" component="h1" sx={{mb: 2}}>
-                Hello world
+                <Auth/>
             </Typography>
         </Box>
     );
