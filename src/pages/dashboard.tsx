@@ -98,4 +98,4 @@ async function deleteField (id: number) {
     const del = await client.api.delete(`/items/perusahaan_bei/${id}`)
     console.log(del)
     return {}
-}
+} 
