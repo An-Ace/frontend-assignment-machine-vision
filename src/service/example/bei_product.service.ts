@@ -34,3 +34,4 @@ export const GetListBeiProduct: PropsTable['dataFetchService'] = params => {
         }
     })
 }
+ 
